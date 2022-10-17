@@ -8,4 +8,4 @@ def index(response):
     return HttpResponse("First View")
 
 def s3View(response):
-    return render(response, "main/templates/s3metadata.html", {})
+    return render(response, "/mysite/templates/s3metadata.html", {})
