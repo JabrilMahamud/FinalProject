@@ -13,3 +13,11 @@ tableDict = table.scan(
         '#S': 'status',
     },
 )
+tableList = list(tableDict.items())
+tableResponse = tableList[0][1]
+tableData = []
+for i in range(len(tableResponse)):
+    tableData.append([tableResponse[i].get('account-name'), 
+    tableResponse[i].get('account'), 
+    tableResponse[i].get('status')])
+print(tableData)
