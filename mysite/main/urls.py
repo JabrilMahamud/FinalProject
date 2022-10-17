@@ -4,5 +4,5 @@ from . import views
 
 urlpatterns = [
     path("", views.index, name="index"),
-    path("s3", S3metadata.as_view, name="s3metadata"),
+    
 ]

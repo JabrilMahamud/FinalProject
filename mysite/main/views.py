@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from.models import *
 from django.views.generic import TemplateView
-from .s3creator import tableData,tableDict,tableResponse
+from .s3creator import tableDict
 # Create your views here.
 
 def index(response):
