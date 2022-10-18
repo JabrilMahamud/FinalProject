@@ -19,5 +19,7 @@ from main.views import S3metadata
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include("main.urls")), 
+    path('', include("main.urls")),
+    path("s3/", S3metadata.as_view(), name="s3metadata"),
+    
 ]
