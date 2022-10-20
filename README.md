@@ -1,4 +1,5 @@
 # FinalProject
+django website that displays data from the dyanmodb database.
 
 
 it uses a virtual machine. 
