@@ -15,11 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from main.views import S3metadata
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include("main.urls")),
-    path("s3/", S3metadata.as_view(), name="s3metadata"),
-    
+    path('s3/', include("main.urls")),    
 ]
