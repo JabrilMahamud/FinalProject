@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .s3creator import *
 # Create your views here.
-status='Active'
 
 def index(response):
     return HttpResponse("First View")
@@ -14,5 +13,7 @@ def index(response):
 #          context = super().get_context_data(**kwargs)
 #          context["dictionary"] = tableDict
 #          return context
-def s3View(response):
-    return render(response, "mysite\templates\s3metadata.html", s3creator(status))
+
+
+def active(response):
+    return render(response,"/templates/active.html",s3creator("Active"))
