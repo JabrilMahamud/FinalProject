@@ -1,7 +1,7 @@
 import boto3
 from boto3.dynamodb.conditions import Attr
 
-# Arrow="Active"
+status="Active" or "Deactive"
 
 def s3creator(status):
     dynamodb = boto3.resource("dynamodb", region_name='eu-west-2')
@@ -25,5 +25,5 @@ def s3creator(status):
     # print(tableData)
     print(type(tableData))
 
-s3creator('Active')
+s3creator(status)
 
