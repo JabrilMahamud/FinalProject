@@ -1,7 +1,14 @@
 <!DOCTYPE html>
+<html lang="en">
+    <h1> Active Accounts</h1>
+    <p>
+        Below displays the active Accounts, in no particular order
+    </p>
 
-<h1> Active Accounts</h1>
-
-<p>
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque similique ratione numquam perspiciatis facilis quasi veniam perferendis porro dignissimos animi necessitatibus doloribus fuga vitae, quibusdam repellendus sapiente inventore veritatis sint!
-</p>
+    <ul>
+        {% for account_name in Active %}
+            <li>{{ account_name }}</li>
+            <br>
+        {% endfor %}
+        </ul>
+</html>
