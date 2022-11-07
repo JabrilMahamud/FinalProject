@@ -47,7 +47,7 @@ def S3Deactive(request):
     table = dynamodb.Table('MetadataJson')
 
     activeDict = table.scan(
-        FilterExpression= (Attr('status').eq("Closed") or Attr('status').eq("Terminated")),
+        FilterExpression= (Attr('status').eq("Terminated")),
         ProjectionExpression='#AN, account',
         ExpressionAttributeNames={
             '#AN': 'account-name',
