@@ -23,9 +23,10 @@ def S3active(request):
 
     activeDict = table.scan(
         FilterExpression= Attr('status').eq("Active"),
-        ProjectionExpression='#AN, account',
+        ProjectionExpression='#AN, account, #S',
         ExpressionAttributeNames={
             '#AN': 'account-name',
+            '#S': 'status'
         },
     )
 
@@ -36,7 +37,7 @@ def S3active(request):
     activeAccounts =[]
 
     for i in range(len(activeResponse)):
-        activeAccounts.append([activeResponse[i].get('account-name'),activeResponse[i].get('account')])
+        activeAccounts.append([activeResponse[i].get('account-name'),activeResponse[i].get('account'),activeResponse[i].get('status')])
 
     return render(request, '../templates/active.html', {
         'Active': activeAccounts,
@@ -46,22 +47,23 @@ def S3Deactive(request):
     dynamodb = boto3.resource("dynamodb", region_name='eu-west-2')
     table = dynamodb.Table('MetadataJson')
 
-    activeDict = table.scan(
-        FilterExpression= (Attr('status').eq("Terminated")),
-        ProjectionExpression='#AN, account',
+    deactiveDict = table.scan(
+        FilterExpression=Attr('status').ne(("Active")),
+        ProjectionExpression='#AN, account, #S',
         ExpressionAttributeNames={
             '#AN': 'account-name',
+            '#S': 'status'
         }
     )
 
-    DeactiveList=list(activeDict.items())
+    DeactiveList=list(deactiveDict.items())
 
     DeactiveResponse = DeactiveList[0][1]
 
     DeactiveAccounts =[]
 
     for i in range(len(DeactiveResponse)):
-        DeactiveAccounts.append([DeactiveResponse[i].get('account-name'),DeactiveResponse[i].get('account')])
+        DeactiveAccounts.append([DeactiveResponse[i].get('account-name'),DeactiveResponse[i].get('account'), DeactiveResponse[i].get('status')])
 
     return render(request, '../templates/deactive.html', {
         'Deactive': DeactiveAccounts,

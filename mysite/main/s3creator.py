@@ -7,9 +7,10 @@ table = dynamodb.Table('MetadataJson')
 
 activeDict = table.scan(
     FilterExpression= Attr('status').eq('Active'),
-    ProjectionExpression='#AN, account',
+    ProjectionExpression='#AN, account, #S',
     ExpressionAttributeNames={
         '#AN': 'account-name',
+        '#S': 'status'
     },
 )
 
@@ -22,4 +23,4 @@ activeAccounts =[]
 for i in range(len(activeResponse)):
     activeAccounts.append([activeResponse[i].get('account-name'),activeResponse[i].get('account'),activeResponse[i].get('status')])
 
-print(type(activeAccounts))
+print(activeAccounts)
