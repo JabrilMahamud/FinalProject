@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
     <h1> Deactive Accounts</h1>
-
-    <ul>
+    <table>
         {% for account_name in Deactive %}
-            <li>{{ account_name }}</li>
-            <br>
-        {% endfor %}
-        </ul>
+        <tr>
+            <td>
+                {{ account_name }}
+            </td>
+            {% endfor %}
+        </tr>
+    </table>
 </html>
