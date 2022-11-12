@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+    <link rel="stylesheet" href="active.css">
     <h1> Active Accounts</h1>
-    <table>
-        {% for account_name in Active %}
-        <tr>
-            <td>
-                {{ account_name }}
-            </td>
+    
+    <body>
+        <table>
+            <tr>
+                <th>
+                    Name number and status
+                </th>
+            </tr>
+            {% for account_name in Active %}
+            <tr>
+                <td>
+                    {{ account_name }}
+                </td>
+            </tr>
             {% endfor %}
-        </tr>
-    </table>
+        </table>
+    </body>
 </html>
