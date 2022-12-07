@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-    <h1> Deactive Accounts</h1>
-    <table>
-        {% for account_name in Active %}
-        <tr>
-            <td>
-                {{ account_name }}
-            </td>
-            {% endfor %}
-        </tr>
-    </table>
+    <h1> Accounts</h1>
+    <a href="/s3/active">Active accounts</a>
+    <a href="/s3/deactive">Deactive Accounts</a>
+    <a href="/s3/downloadPage">Download Page</a>
 </html>
