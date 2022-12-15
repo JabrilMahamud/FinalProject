@@ -1,39 +1,37 @@
+
 from django.shortcuts import render
-from django.http import HttpResponse
 import boto3
 from boto3.dynamodb.conditions import Attr
-import datetime
+from mysite.main.classes.active import *
 
-# Create your views here.
+S3activeResponder
+
+# Create your views here.#
+
+
+##HOME PAGE###
+
 
 def index(request):
     return render(request, "../templates/s3metadata.html")
 
+
+
+
+#############ACTIVE ACCOUNTS#####
+
+
+
 def S3active(request):
-    dynamodb = boto3.resource("dynamodb", region_name='eu-west-2')
-    table = dynamodb.Table('MetadataJson')
-
-    activeDict = table.scan(
-        FilterExpression= Attr('status').eq("Active"),
-        ProjectionExpression='#AN, account, #S',
-        ExpressionAttributeNames={
-            '#AN': 'account-name',
-            '#S': 'status'
-        },
-    )
-
-    activeList=list(activeDict.items())
-
-    activeResponse = activeList[0][1]
-
-    activeAccounts =[]
-
-    for i in range(len(activeResponse)):
-        activeAccounts.append([activeResponse[i].get('account-name'),activeResponse[i].get('account'),activeResponse[i].get('status')])
-
     return render(request, '../templates/active.html', {
-        'Active': activeAccounts,
+        'Active': S3activeResponder,
         })
+
+
+
+
+#######DEACTIVE ACCOUNTS#####
+
 
 def S3Deactive(request):
     dynamodb = boto3.resource("dynamodb", region_name='eu-west-2')
@@ -62,6 +60,7 @@ def S3Deactive(request):
         })
 
 
+                       ###DOWNLOADER###
 def s3creator(request):
     import csv
     import boto3
@@ -93,3 +92,4 @@ def s3creator(request):
     return render(request,"../templates/downloadPage.html",{
         'Accounts' : tableAccounts
     })
+
