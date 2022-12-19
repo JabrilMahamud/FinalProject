@@ -13,7 +13,7 @@ def OldHome(request):
     return render(request, "../templates/mytemplates/s3metadata.html")
 
 def NewHome(request):
-    return render(request,'../templates/bootstrap/simplebootstrap.html',{
+    return render(request,'../templates/bootstrap/dist/index.html',{
         'Name': "Jabril",
     })
 
