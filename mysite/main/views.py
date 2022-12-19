@@ -9,21 +9,21 @@ import csv
 # Create your views here.#
 
 
-def index(request):
-    return render(request, "../templates/s3metadata.html")
+def OldHome(request):
+    return render(request, "../templates/mytemplates/s3metadata.html")
 
 def S3active(request):
-    return render(request, '../templates/active.html', {
+    return render(request, '../templates/mytemplates/active.html', {
         'Active': S3activeResponder,
         })
 
 def S3Deactive(request):
-    return render(request, '../templates/deactive.html', {
+    return render(request, '../templates/mytemplates/deactive.html', {
         'Deactive': S3deactiveResponder,
         })
 
 def s3creator(request):
-    return render(request,"../templates/downloadPage.html",{
+    return render(request,"../templates//mytemplates/downloadPage.html",{
         'Accounts' : s3creatorResponder,
     })
 
