@@ -12,6 +12,11 @@ import csv
 def OldHome(request):
     return render(request, "../templates/mytemplates/s3metadata.html")
 
+def NewHome(request):
+    return render(request,'../templates/bootstrap/simplebootstrap.html',{
+        'Name': "Jabril",
+    })
+
 def S3active(request):
     return render(request, '../templates/mytemplates/active.html', {
         'Active': S3activeResponder,
