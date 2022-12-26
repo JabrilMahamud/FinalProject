@@ -7,6 +7,6 @@ urlpatterns = [
     path('active/',views.S3active, name='active'),
     path('deactive/',views.S3Deactive, name='Deactive'),
     path('downloads/',views.s3creator, name="S3"),
-    path('newpage/',views.NewHome, name="New Page")
+    path('newpage/',views.NewHome, name="New Page"),
 
 ]
