@@ -4,6 +4,6 @@ django website that displays data from the dyanmodb database into a website
 
 it uses a virtual machine. 
 
-1. source myenv/Scripts/activate
-2. cd mysite
-3. python manage.py runserver
+source env/Scripts/activate
+cd mysite
+python manage.py runserver
