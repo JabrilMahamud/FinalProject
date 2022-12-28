@@ -1,7 +1,7 @@
 import boto3
 from boto3.dynamodb.conditions import Attr
 
-def S3activeResponder(status):
+def S3activeResponder():
     dynamodb = boto3.resource("dynamodb", region_name='eu-west-2')
     table = dynamodb.Table('MetadataJson')
 
@@ -22,7 +22,6 @@ def S3activeResponder(status):
 
     for i in range(len(activeResponse)):
         activeAccounts.append([activeResponse[i].get('account-name'),activeResponse[i].get('account'),activeResponse[i].get('status')])
+    
 
     return activeAccounts
-
-
