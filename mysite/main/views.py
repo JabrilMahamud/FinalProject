@@ -26,6 +26,6 @@ def S3Deactive(request):
 
 def s3creator(request):
     return render(request,"../templates/mytemplates/downloadPage.html",{
-        'Accounts' : s3creatorResponder,
+        'S3Accounts' : s3creatorResponder,
     })
 
